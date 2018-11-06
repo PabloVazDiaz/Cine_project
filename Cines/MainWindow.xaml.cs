@@ -24,5 +24,14 @@ namespace Cines
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = new Button();
+            
+            RoomVisual room1 = new RoomVisual();
+            room1.ShowDialog();
+            
+        }
     }
 }
