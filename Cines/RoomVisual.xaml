@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Cines"
         mc:Ignorable="d"
         Title="RoomVisual" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="SeatGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -30,5 +30,6 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Image x:Name="Silla" Grid.Column="11" Margin="319,59,-553,-75" Grid.Row="1" Grid.RowSpan="6" Source="Cinema seat.jpg" Stretch="Fill"/>
     </Grid>
 </Window>

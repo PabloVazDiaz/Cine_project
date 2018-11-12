@@ -30,16 +30,30 @@ namespace Cines
                 for (int j = 0; j < 7; j++)
                 {
                     seats.Add(new Button());
-                    seats[cont].Content = string.Format("Row: {0}, Column: {1}", i, j);
+                    //seats[cont].Content = string.Format("Row: {0}, Column: {1}", i, j);
+                    var brush = new ImageBrush();
+                    seats[cont].Content= Silla ;
+                    
                     Grid.SetColumn(seats[cont], i);
                     Grid.SetRow(seats[cont], j);
                     seats[cont].Name = "seat" + i + j;
+                    seats[cont].Click += Button_Click;
                     
+                    SeatGrid.Children.Add(seats[cont]);
+
                     cont++;
                 }
             }
             
             
+            
+        }
+        
+        
+        
+        private void Button_Click(Object sender, EventArgs e)
+        {
+            MessageBox.Show("Huge sucess!");
         }
     }
 }
