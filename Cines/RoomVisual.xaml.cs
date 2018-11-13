@@ -19,23 +19,23 @@ namespace Cines
     /// </summary>
     public partial class RoomVisual : Window
     {
-        public List<Button> seats;
+        List<Seat> seats;
         int cont = 0;
         public RoomVisual()
         {
             InitializeComponent();
-            seats= new List<Button>();
+            seats= new List<Seat>();
             for (int i = 0; i < 7; i++)
             {
                 for (int j = 0; j < 7; j++)
                 {
-                    seats.Add(new Button());
+                    seats.Add(new Seat());
                     //seats[cont].Content = string.Format("Row: {0}, Column: {1}", i, j);
                     //var brush = new ImageBrush();
                     //brush.ImageSource = seat.Source;
 
                     //seats[cont].Background = brush;
-                    seats[cont].Content = Update_image();
+                    seats[cont].Content = Update_image(seats[cont]);
                     Grid.SetColumn(seats[cont], i);
                     Grid.SetRow(seats[cont], j);
                     seats[cont].Name = "seat" + i + j;
@@ -51,22 +51,35 @@ namespace Cines
             
         }
         
-        private Grid Update_image()
+        private Grid Update_image(Seat s)
         {
             Grid g = new Grid();
             Image img = new Image();
-            img.Source = seat.Source;
+            if(s.Reserved)
+            {
+                img.Source = reserved_seat.Source;
+            }else
+            {
+                img.Source = seat.Source;
+            }
+            
             g.Children.Add(img);
             return g;
             
         }
         
-        private void Button_Click(Object sender, EventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
+            if(((Seat)sender).Available && ((Seat)sender).Reserved)
+            {
+                ((Seat)sender).Reserved = false;
+            }else if(((Seat)sender).Available && !((Seat)sender).Reserved)
+            {
+                ((Seat)sender).Reserved = true;
 
-            var brush = new ImageBrush();
-            brush.ImageSource = reserved_seat.Source;
-            ((Button)sender).Background = brush;
+            }
+
+            ((Seat)sender).Content = Update_image((Seat)sender);
         }
     }
 }

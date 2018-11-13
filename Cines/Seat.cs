@@ -7,9 +7,19 @@ using System.Windows.Controls;
 
 namespace Cines
 {
-    class Seat:Button
+     class Seat:Button
     {
-        private int row, column;
-        private bool available, reserved;
+        
+
+        public int Row { get; set; }
+        public int Column { get; set; }
+        public bool Available { get; set; }
+        public bool Reserved { get; set; }
+
+        public Seat()
+        {
+            Available = true;
+            Reserved = false;
+        }
     }
 }
