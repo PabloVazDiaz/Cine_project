@@ -30,6 +30,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Image x:Name="Silla" Grid.Column="11" Margin="319,59,-553,-75" Grid.Row="1" Grid.RowSpan="6" Source="Cinema seat.jpg" Stretch="Fill"/>
+        <Image x:Name="seat" Grid.Column="11" Margin="223,54,-457,-189" Grid.Row="3" Grid.RowSpan="4" Source="seat.jpg" Stretch="Fill"/>
+        <Image x:Name="reserved_seat" Grid.Column="11" Margin="716,48,-950,-123" Grid.Row="2" Grid.RowSpan="5" Source="reserved_seat.jpg" Stretch="Fill"/>
     </Grid>
 </Window>

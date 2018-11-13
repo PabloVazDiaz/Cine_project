@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Cines
 {
-    class Seat
+    class Seat:Button
     {
         private int row, column;
         private bool available, reserved;
