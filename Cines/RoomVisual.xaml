@@ -5,32 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cines"
         mc:Ignorable="d"
-        Title="RoomVisual" Height="450" Width="800">
-    <Grid x:Name="SeatGrid">
+        Title="RoomVisual" Height="553.27" Width="1006.54">
+    <Grid >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+
+
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Image x:Name="seat" Grid.Column="11" Margin="223,54,-457,-189" Grid.Row="3" Grid.RowSpan="4" Source="seat.jpg" Stretch="Fill"/>
-        <Image x:Name="reserved_seat" Grid.Column="11" Margin="716,48,-950,-123" Grid.Row="2" Grid.RowSpan="5" Source="reserved_seat.jpg" Stretch="Fill"/>
+        <Grid x:Name="SeatGrid" Margin="115,55,109,79">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions >
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+        </Grid>
+        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="11,0,0,389" VerticalAlignment="Bottom" Width="100" Click="Button_Aceptar_Click" RenderTransformOrigin="0.489,3.617" Grid.Column="1"/>
+
+        <Image x:Name="seat" Margin="322,6,116,-182" Source="seat.jpg" Visibility="Hidden" Stretch="Fill" Grid.ColumnSpan="4"/>
+        <Image x:Name="reserved_seat" Grid.Column="3" Margin="253,48,-586,-123" Visibility="Hidden" Source="reserved_seat.jpg" Stretch="Fill"/>
+        <Image x:Name="taken_seat" Grid.Column="3" Margin="678,14,-1011,-166" Visibility="Hidden" Source="taken_seat.jpg" Stretch="Fill"/>
+        <Button x:Name="Cancelar_Button" Content="Cancelar Asientos" Grid.Column="1" HorizontalAlignment="Left" Margin="11,163,0,0" VerticalAlignment="Top" Width="100" Click="Cancelar_Button_Click"/>
+        <Button x:Name="Salir_button" Content="Salir" Grid.Column="1" HorizontalAlignment="Left" Margin="11,188,0,0" VerticalAlignment="Top" Width="100" Click="Salir_button_Click"/>
+        <Button Content="Reservar" Grid.Column="1" HorizontalAlignment="Left" Margin="11,138,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
     </Grid>
+
 </Window>

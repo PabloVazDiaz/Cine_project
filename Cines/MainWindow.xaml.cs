@@ -20,18 +20,29 @@ namespace Cines
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Room> rooms = new List<Room>();
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Open_Click(object sender, RoutedEventArgs e)
         {
-            Button button = new Button();
+
+            ((Room)rooms[MovieListBox.SelectedIndex]).roomVisual.ShowDialog();
             
-            RoomVisual room1 = new RoomVisual();
-            room1.ShowDialog();
+        }
+
+        private void Button_Create_Click(object sender, RoutedEventArgs e)
+        {
+            rooms.Add(new Room(MovieListBox.Items.Count, "Cars"));
+            MovieListBox.Items.Add(rooms.Last().movieTitle);
             
+        }
+
+        private void Button_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

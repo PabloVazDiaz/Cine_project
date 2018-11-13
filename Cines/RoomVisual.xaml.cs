@@ -30,16 +30,13 @@ namespace Cines
                 for (int j = 0; j < 7; j++)
                 {
                     seats.Add(new Seat());
-                    //seats[cont].Content = string.Format("Row: {0}, Column: {1}", i, j);
-                    //var brush = new ImageBrush();
-                    //brush.ImageSource = seat.Source;
-
-                    //seats[cont].Background = brush;
+                    
                     seats[cont].Content = Update_image(seats[cont]);
                     Grid.SetColumn(seats[cont], i);
                     Grid.SetRow(seats[cont], j);
                     seats[cont].Name = "seat" + i + j;
-                    seats[cont].Click += Button_Click;
+                    seats[cont].Click += Button_Reserve_Click;
+                    
                     
                     SeatGrid.Children.Add(seats[cont]);
 
@@ -54,21 +51,27 @@ namespace Cines
         private Grid Update_image(Seat s)
         {
             Grid g = new Grid();
+            
             Image img = new Image();
-            if(s.Reserved)
+            if(!s.Available)
+            {
+                img.Source = taken_seat.Source;
+            }else if(s.Reserved)
             {
                 img.Source = reserved_seat.Source;
-            }else
+            }
+            else
             {
                 img.Source = seat.Source;
+
             }
-            
+
             g.Children.Add(img);
             return g;
             
         }
         
-        private void Button_Click(object sender, EventArgs e)
+        private void Button_Reserve_Click(object sender, EventArgs e)
         {
             if(((Seat)sender).Available && ((Seat)sender).Reserved)
             {
@@ -78,8 +81,56 @@ namespace Cines
                 ((Seat)sender).Reserved = true;
 
             }
+            
 
             ((Seat)sender).Content = Update_image((Seat)sender);
+        }
+
+        private void Button_Click_cancelar(object sender, RoutedEventArgs e)
+        {
+            ((Seat)sender).Available = true;
+            ((Seat)sender).Reserved = false;
+            ((Seat)sender).Content = Update_image((Seat)sender);
+            
+
+        }
+
+        private void Button_Aceptar_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(Seat s in seats)
+            {
+                if (s.Reserved)
+                {
+                    s.Available = false;
+                    s.Content = Update_image(s);
+                }
+
+      
+            }
+        }
+
+        private void Salir_button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+        }
+
+        private void Cancelar_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Seleccione los asientos que quiere cancelar y presione reservar para volver a la funcionalidad normal");
+            foreach(Seat s in seats)
+            {
+                s.Click -= Button_Reserve_Click;
+                s.Click += Button_Click_cancelar;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Seat s in seats)
+            {
+                s.Click -= Button_Click_cancelar;
+                s.Click += Button_Reserve_Click;
+            }
         }
     }
 }
