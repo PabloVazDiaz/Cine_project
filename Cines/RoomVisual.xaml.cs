@@ -65,7 +65,7 @@ namespace Cines
                 img.Source = seat.Source;
 
             }
-
+           
             g.Children.Add(img);
             return g;
             

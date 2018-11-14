@@ -112,7 +112,16 @@
     <Resource Include="reserved_seat.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="taken_seat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bgroom.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

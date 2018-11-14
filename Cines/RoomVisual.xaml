@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cines"
         mc:Ignorable="d"
-        Title="RoomVisual" Height="553.27" Width="1006.54">
+        Title="RoomVisual" Height="553.27" Width="834.04" ResizeMode="NoResize">
+    <Window.Background >
+        <ImageBrush Stretch="UniformToFill" ImageSource="bgroom.jpg"/>
+    </Window.Background>
+  
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
