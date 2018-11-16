@@ -28,14 +28,22 @@ namespace Cines
 
         private void Button_Open_Click(object sender, RoutedEventArgs e)
         {
-
-            ((Room)rooms[MovieListBox.SelectedIndex]).roomVisual.ShowDialog();
+            if (MovieListBox.SelectedIndex >= 0)
+            {
+                ((Room)rooms[MovieListBox.SelectedIndex]).roomVisual.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No has seleccionado sala para abrir");
+            }
             
         }
 
         private void Button_Create_Click(object sender, RoutedEventArgs e)
         {
-            rooms.Add(new Room(MovieListBox.Items.Count, "Cars"));
+            InputBox ib = new InputBox();
+            ib.ShowDialog();
+            rooms.Add(new Room(MovieListBox.Items.Count, ib.title));
             MovieListBox.Items.Add(rooms.Last().movieTitle);
             
         }

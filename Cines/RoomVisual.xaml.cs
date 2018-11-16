@@ -119,7 +119,8 @@ namespace Cines
             MessageBox.Show("Seleccione los asientos que quiere cancelar y presione reservar para volver a la funcionalidad normal");
             foreach(Seat s in seats)
             {
-                s.Click -= Button_Reserve_Click;
+                
+                s.Click -= Button_Click_cancelar;
                 s.Click += Button_Click_cancelar;
             }
         }
@@ -128,7 +129,8 @@ namespace Cines
         {
             foreach (Seat s in seats)
             {
-                s.Click -= Button_Click_cancelar;
+
+                s.Click -= Button_Reserve_Click;
                 s.Click += Button_Reserve_Click;
             }
         }
