@@ -5,15 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cines"
         mc:Ignorable="d"
-        Title="MainWindow" Height="423" Width="662" ResizeMode="NoResize" >
+        Title="MainWindow" Height="423" Width="662" ResizeMode="NoResize" Name="Main_Window" Loaded="Main_Window_Loaded" >
     <Window.Background >
         <ImageBrush Stretch="UniformToFill" ImageSource="22.jpg"/>
     </Window.Background>
     <Grid>
-        <Button Content="Abrir Sala" HorizontalAlignment="Left" Margin="483,174,0,0" VerticalAlignment="Top" Width="75" Click="Button_Open_Click"/>
-        <ListBox x:Name="MovieListBox" HorizontalAlignment="Left" Height="249" Margin="117,75,0,0" VerticalAlignment="Top" Width="318"/>
-        <Button Content="Crear Sala" HorizontalAlignment="Left" Margin="483,149,0,0" VerticalAlignment="Top" Width="75" Click="Button_Create_Click"/>
-        <Button Content="Salir" HorizontalAlignment="Left" Margin="483,199,0,0" VerticalAlignment="Top" Width="75" Click="Button_Exit_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="301*"/>
+            <ColumnDefinition Width="355*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Abrir Sala" HorizontalAlignment="Left" Margin="181.934,174,0,0" VerticalAlignment="Top" Width="75" Click="Button_Open_Click" Grid.Column="1"/>
+        <ListBox x:Name="MovieListBox" HorizontalAlignment="Left" Height="249" Margin="117,75,0,0" VerticalAlignment="Top" Width="318" Grid.ColumnSpan="2"/>
+        <Button Content="Crear Sala" Name="CreateRoom_Button" HorizontalAlignment="Left" Margin="181.934,149,0,0" VerticalAlignment="Top" Width="75" Click="Button_Create_Click" Grid.Column="1"/>
+        <Button Content="Salir" HorizontalAlignment="Left" Margin="181.934,199,0,0" VerticalAlignment="Top" Width="75" Click="Button_Exit_Click" Grid.Column="1"/>
+        
+        <TextBox Name="User_TextBox" HorizontalAlignment="Left" Height="23" Margin="136,354,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="Pass_TextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="275,354,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <CheckBox Name="Priv_check" Content="Administrador" Grid.Column="1" HorizontalAlignment="Left" Margin="99,359,0,0" VerticalAlignment="Top"/>
+        <Button Name="NewUser_Button" Content="Nuevo Usuario" Grid.Column="1" HorizontalAlignment="Left" Margin="212,354,0,0" VerticalAlignment="Top" Width="88" Click="Button_Click"/>
+        <Label Name="Usuario_label" Content="Usuario" HorizontalAlignment="Left" Margin="146,329,0,0" VerticalAlignment="Top"/>
+        <Label Name="Pass_label" Content="Contraseña" HorizontalAlignment="Left" Margin="280,328,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
 
 
     </Grid>
